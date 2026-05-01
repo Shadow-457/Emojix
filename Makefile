@@ -14,14 +14,21 @@ emojis.h:
 install: emojix
 	install -D -m 755 emojix $(PREFIX)/bin/emojix
 	mkdir -p $(HOME)/.config/autostart
-	@echo "[Desktop Entry]\nName=Emojix\nComment=Global Emoji Expander\nExec=$(PREFIX)/bin/emojix\nTerminal=false\nType=Application" > $(HOME)/.config/autostart/emojix.desktop
-	@echo "✅ Emojix successfully installed to $(PREFIX)/bin/emojix"
-	@echo "✅ Autostart entry added to ~/.config/autostart/emojix.desktop"
-	@echo "\nRun 'emojix &' to start it right now!"
+	mkdir -p $(HOME)/.local/share/applications
+	mkdir -p $(HOME)/.local/share/icons/hicolor/scalable/apps
+	cp logo.svg $(HOME)/.local/share/icons/hicolor/scalable/apps/emojix.svg
+	printf "[Desktop Entry]\nName=Emojix\nComment=Global Emoji Expander Background Service\nExec=sh -c 'pkill emojix; $(PREFIX)/bin/emojix'\nIcon=emojix\nTerminal=false\nType=Application\nCategories=Utility;\n" > $(HOME)/.local/share/applications/emojix.desktop
+	printf "[Desktop Entry]\nName=Emojix\nComment=Global Emoji Expander\nExec=$(PREFIX)/bin/emojix\nTerminal=false\nType=Application\n" > $(HOME)/.config/autostart/emojix.desktop
+	gtk-update-icon-cache -f -t $(HOME)/.local/share/icons/hicolor || true
+	update-desktop-database $(HOME)/.local/share/applications || true
+	@echo "✅ Emojix successfully installed!"
+	@echo "You can now launch it directly from your Start Menu!"
 
 uninstall:
 	rm -f $(PREFIX)/bin/emojix
 	rm -f $(HOME)/.config/autostart/emojix.desktop
+	rm -f $(HOME)/.local/share/applications/emojix.desktop
+	rm -f $(HOME)/.local/share/icons/hicolor/scalable/apps/emojix.svg
 	@echo "🗑️ Emojix successfully uninstalled."
 
 clean:
