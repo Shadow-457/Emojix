@@ -45,7 +45,7 @@ make install
 *Note: This creates a desktop entry in `~/.config/autostart` and moves the binary to your `~/.local/bin/` folder. Root access (`sudo`) is not required!*
 
 ### Step 3: Run it right away!
-You only need to run this command once to start it for your current session:
+You only need to run this once to start it for your current session:
 
 Go in start menu and start the app 🔥
 
