@@ -45,26 +45,24 @@ make install
 *Note: This creates a desktop entry in `~/.config/autostart` and moves the binary to your `~/.local/bin/` folder. Root access (`sudo`) is not required!*
 
 ### Step 3: Run it right away!
-You only need to run this once to start it for your current session:
+You don't need to use the terminal to start the background daemon! 
+Just search for **"Emojix"** in your application launcher (Start Menu) and click the custom SVG Logo 🔥. The background service will spin up silently, and restarting it is as simple as re-clicking the icon.
 
-Go in start menu and start the app 🔥
-
-*(You can also use `pkill emojix` if you ever need to stop it.)*
+*(You can also use `pkill emojix` in the terminal if you ever need to stop it manually.)*
 
 ## 🎮 How to Use Emojix
 
-Whenever Emojix is running in the background, you can trigger it at any time!
-By default, all emoji hotkeys must start with `..` followed by an alias.
+Whenever Emojix is running in the background, you can trigger it anywhere you type text!
+By default, all emoji hotkeys must start with `..` followed by an alias. The app actively guards your text and **will only expand the emoji when you execute the word by pressing `Spacebar`, `Tab`, or `Enter`!**
 
-**Instant Expansion Examples (Match Exactly):**
-*   `..smile` ➡️ 😄
-*   `..fire` ➡️ 🔥
-*   `..rocket` ➡️ 🚀
-*   `..pizza` ➡️ 🍕
-*   `..skull` ➡️ 💀
+**Standard Expansion Examples (Match Exactly):**
+*   Type `..smile` + `Space` ➡️ 😄
+*   Type `..fire` + `Space` ➡️ 🔥
+*   Type `..rocket` + `Space` ➡️ 🚀
+*   Type `..pizza` + `Space` ➡️ 🍕
 
 **Fuzzy Autocorrect System:**
-If you aren't sure how to spell it, just type what you think it is starting with `..` and press the **`Spacebar`**, **`Tab`**, or **`Enter`**. Emojix will gracefully delete your misspelling and drop in its best prediction!
+If you aren't sure how to spell it, just type what you realistically think it is (starting with `..`) and press the target key (**`Spacebar`**, **`Tab`**, or **`Enter`**). Emojix gracefully deletes your typo and drops in its best prediction!
 
 *   Typing `..smle` + `Space` ➔ 😄
 *   Typing `..partyy` + `Space` ➔ 🎉
